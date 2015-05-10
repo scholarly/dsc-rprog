@@ -1,0 +1,50 @@
+
+```{r}
+x <- 4
+class(x)
+
+x <- c(4, "a", TRUE)
+class(x)
+
+x <- c(1,3, 5); y <- c(3, 2, 10)
+z= cbind(x,y)
+class(z)
+class(z[1,])
+
+x <- list(2, "a", "b", TRUE)
+x[[2]]
+
+x <- 1:4; y <- 2:3
+z = x+y
+class(z)
+
+x <- c(17, 14, 4, 5, 13, 12, 10)
+x[x > 10] <- 4
+x
+```
+
+```{r}
+library(downloader)
+download("https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2Fquiz1_data.zip","quiz1.data.zip")
+data = read.csv(unz("quiz1.data.zip",filename="hw1_data.csv"))
+
+colnames(data)
+data[1:2,]
+nrow(data)
+tail(data,2)
+
+data[[47,"Ozone"]]
+
+sum(is.na(data$Ozone))
+
+mean(data$Ozone,na.rm=T)
+
+ss =subset(data,Ozone>31 & Temp>90)
+mean(ss$Ozone)
+mean(ss$Solar.R)
+
+mean(subset(data,Month==6)$Temp)
+
+max(subset(data,Month==5)$Ozone,na.rm=TRUE)
+
+```
