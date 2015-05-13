@@ -1,0 +1,19 @@
+---
+title: "Hospital Comparisons"
+author: "Terrel Shumway"
+date: "Tuesday, May 12, 2015"
+output: html_document
+---
+
+
+```{r}
+outcome <- read.csv("data/outcome-of-care-measures.csv", colClasses = "character")
+outcome[, 11] <- as.numeric(outcome[, 11])
+hist(outcome[,11])
+```
+
+```{r}
+library("downloader")
+download("https://d396qusza40orc.cloudfront.net/rprog%2Fdata%2FProgAssignment3-data.zip","hw3.zip")
+system2(Sys.which("unzip"),"hw3.zip")
+```
